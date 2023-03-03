@@ -1,0 +1,14 @@
+{
+  "name": "base",
+  "description": "base role for all servers",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+    "timezone": "Europe/Chisinau"
+  },
+  "override_attributes": {
+  },
+  "chef_type": "role",
+  "run_list": [
+    "recipe[devtools]"
+  ]
+}
