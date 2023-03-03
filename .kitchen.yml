@@ -16,6 +16,14 @@ platforms:
     driver:
       image: dokken/ubuntu-20.04
 
+# todo: add more test platforms
+# dokken/ubuntu-18.04
+# dokken/ubuntu-22.10
+# dokken/ubuntu-22.10
+# dokken/debian-12
+# dokken/debian-11
+# dokken/debian-10
+
 suites:
   - name: default
     run_list:
