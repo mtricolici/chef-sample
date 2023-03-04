@@ -5,7 +5,7 @@ Description=<%= node['errbit']['systemd']['service']['description'] %>
 Type=simple
 User=<%= @user %>
 WorkingDirectory=<%= @dir %>
-ExecStart=/bin/bash -lc 'source ~/.profile && bundle exec rails server'
+ExecStart=/bin/bash -lc 'source ~/.profile && bundle exec rails server -p <%= @port %> -b <%= @interface %>'
 Restart=always
 
 [Install]

@@ -27,8 +27,9 @@ describe service('errbit') do
   it { should be_running }
 end
 
-describe port(3000) do
+describe port(4321) do
   it { should be_listening }
   its('protocols') { should include('tcp') }
   its('processes') { should include 'ruby' }
+  its('addresses') { should include '0.0.0.0' }
 end

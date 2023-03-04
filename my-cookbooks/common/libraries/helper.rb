@@ -10,7 +10,7 @@ module Common
     end
   end
 
-  def wait_until_port_is_open(port, max_attempts = 20, sleep_time = 5)
+  def wait_until_port_is_open(port, max_attempts = 30, sleep_time = 5)
     attempts = 0
     while !port_open?(port) && attempts < max_attempts do
       attempts += 1

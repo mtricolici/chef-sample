@@ -23,6 +23,14 @@ module Errbit
     "#{errbit_home}/sources"
   end
 
+  def errbit_port
+    node['errbit']['port']
+  end
+
+  def errbit_interface
+    node['errbit']['bind_address']
+  end
+
   def mongodb_user_entry
     data_bag_item(node['mongodb']['databag']['name'], node['mongodb']['databag']['item'])
   end

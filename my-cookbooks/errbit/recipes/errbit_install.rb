@@ -66,7 +66,7 @@ template '/etc/systemd/system/errbit.service' do
   owner 'root'
   group 'root'
   mode '0644'
-  variables(user: errbit_user_id, dir: errbit_dir)
+  variables(user: errbit_user_id, dir: errbit_dir, port: errbit_port, interface: errbit_interface)
   action :create
   notifies :reload, 'systemd_unit[errbit.service]', :immediately
 end
@@ -74,5 +74,13 @@ end
 systemd_unit 'errbit.service' do
   triggers_reload true
   action [:enable, :start]
+end
+
+# I tried with :notifies and :subscribes . only this HACK works :)
+ruby_block 'wait errbit to start' do
+  block do
+    wait_until_port_is_open(node['errbit']['port'])
+  end
+  action :run
 end
 
