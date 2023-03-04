@@ -21,6 +21,14 @@ systemd_unit 'mongodb' do
   action [:enable, :start]
 end
 
+# I tried with :notifies and :subscribes . only this HACK works :)
+ruby_block 'wait mongodb to start' do
+  block do
+    wait_port_is_open(27017)
+  end
+  action :run
+end
+
 bash 'mongodb create user' do
   user 'root'
   group 'root'
@@ -33,5 +41,4 @@ bash 'mongodb create user' do
       }
       EOF
   EOH
-  action :run
 end
