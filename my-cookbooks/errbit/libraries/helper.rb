@@ -18,6 +18,10 @@ module Errbit
   def ruby_version
     node['errbit']['ruby']['version']
   end
+
+  def errbit_dir
+    "#{errbit_home}/sources"
+  end
 end
 
 Chef::Recipe.send(:include, Errbit)
