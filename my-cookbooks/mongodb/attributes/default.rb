@@ -14,3 +14,5 @@ else
   raise 'Unsupported platform'
 end
 
+default['mongodb']['databag']['name'] = 'passwords'
+default['mongodb']['databag']['item'] = 'mongodb'

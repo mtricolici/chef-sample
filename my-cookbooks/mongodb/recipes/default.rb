@@ -20,3 +20,18 @@ systemd_unit 'mongodb' do
   unit_name node['mongodb']['systemd']['unit']['name']
   action [:enable, :start]
 end
+
+bash 'mongodb create user' do
+  user 'root'
+  group 'root'
+  login true
+  code <<-EOH
+      mongosh <<EOF
+      use admin
+      if (db.getCollection("system.users").find({"user": "#{mongodb_user}"}).toArray().length === 0) {
+          db.createUser({user: "#{mongodb_user}", pwd: "#{mongodb_password}", roles: ["readWrite"]})
+      }
+      EOF
+  EOH
+  action :run
+end

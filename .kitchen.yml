@@ -12,6 +12,7 @@ transport:
 provisioner:
   name: dokken #chef_zero
   chef_license: accept-no-persist
+  encrypted_data_bag_secret_key_path: example_secretkey
 
 verifier:
   name: inspec
@@ -37,7 +38,7 @@ platforms:
 suites:
   - name: default
     run_list:
-#      - role[mongodb]
-      - role[errbit]
+      - role[mongodb]
+#      - role[errbit]
     attributes:
 

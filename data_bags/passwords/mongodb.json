@@ -1,0 +1,17 @@
+{
+  "id": "mongodb",
+  "user": {
+    "encrypted_data": "7DUDTL+7oynujfzO8tY1fKwhzMQHVisYkA==\n",
+    "iv": "RMDdpq33Bl9AH6ZO\n",
+    "auth_tag": "sNkrU/aeE2HJfW5vOyGWxg==\n",
+    "version": 3,
+    "cipher": "aes-256-gcm"
+  },
+  "password": {
+    "encrypted_data": "7hv42moo86CETUW4GkMATntjWcRMZL/15naC\n",
+    "iv": "vTiufTF8U/S13+Ec\n",
+    "auth_tag": "0yxswM65gOaYOws1q6AjJQ==\n",
+    "version": 3,
+    "cipher": "aes-256-gcm"
+  }
+}
