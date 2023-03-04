@@ -1,0 +1,9 @@
+{
+  "id": "errbit",
+  "password": "!",
+  "groups": ["errbit", "sudo"],
+  "home": "/errbit",
+  "shell": "\/bin\/bash",
+  "comment": "Errbit User"
+}
+
