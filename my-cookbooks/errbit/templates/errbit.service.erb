@@ -1,0 +1,13 @@
+[Unit]
+Description=<%= node['errbit']['systemd']['service']['description'] %>
+
+[Service]
+Type=simple
+User=<%= @user %>
+WorkingDirectory=<%= @dir %>
+ExecStart=/bin/bash -lc 'source ~/.profile && bundle exec rails server'
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+

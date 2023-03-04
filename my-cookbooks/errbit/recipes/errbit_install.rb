@@ -49,3 +49,30 @@ template "#{errbit_dir}/.env" do
   action :create
 end
 
+bash 'errbit bootstrap' do
+  user errbit_user_id
+  group errbit_group
+  login true
+  cwd errbit_dir
+  code <<-EOH
+    source ~/.profile
+    bundle exec rake errbit:bootstrap
+  EOH
+  action :run
+end
+
+template '/etc/systemd/system/errbit.service' do
+  source 'errbit.service.erb'
+  owner 'root'
+  group 'root'
+  mode '0644'
+  variables(user: errbit_user_id, dir: errbit_dir)
+  action :create
+  notifies :reload, 'systemd_unit[errbit.service]', :immediately
+end
+
+systemd_unit 'errbit.service' do
+  triggers_reload true
+  action [:enable, :start]
+end
+
