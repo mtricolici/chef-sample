@@ -3,8 +3,6 @@
 # Recipe:: default
 #
 
-# Create errbit user
-include_recipe 'errbit::user'
-
-# Install rvm and ruby in errbit user home directory
-include_recipe 'errbit::ruby'
+include_recipe 'errbit::user_create'
+include_recipe 'errbit::ruby_install'
+include_recipe 'errbit::errbit_install'
