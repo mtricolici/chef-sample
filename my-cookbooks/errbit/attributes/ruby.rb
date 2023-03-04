@@ -1,6 +1,6 @@
 
 # Latest version supported by errbit
-default['errbit']['ruby']['version']='2.7.2'
+default['errbit']['ruby']['version']='2.7.6'
 
 # requirements needed to install a specific ruby version with rvm
 # TODO: use metapackage build-essentials + what's missing

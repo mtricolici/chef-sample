@@ -27,3 +27,16 @@ file 'errbit_git_lock' do
   action :nothing
 end
 
+bash 'bundle install' do
+  user errbit_user_id
+  group errbit_group
+  login true
+  cwd errbit_dir
+  code <<-EOH
+    source ~/.profile
+    gem update bundler
+    bundle install
+  EOH
+  action :run
+end
+
