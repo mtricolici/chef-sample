@@ -23,13 +23,16 @@ bash 'install RVM' do
   action :run
 end
 
+version = node['errbit']['ruby']['version']
+
 bash 'install ruby' do
   user user['id']
   group user['groups'][0]
   login true
+  creates "#{user['home']}/.rvm/rubies/ruby-#{version}/bin/ruby"
   code <<-EOH
     source ~/.profile
-    rvm install #{node['errbit']['ruby']['version']}
+    rvm install #{version}
   EOH
   action :run
 end
