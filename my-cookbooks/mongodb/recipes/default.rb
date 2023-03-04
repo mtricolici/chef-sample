@@ -24,7 +24,7 @@ end
 # I tried with :notifies and :subscribes . only this HACK works :)
 ruby_block 'wait mongodb to start' do
   block do
-    wait_port_is_open(27017)
+    wait_until_port_is_open(27017)
   end
   action :run
 end
