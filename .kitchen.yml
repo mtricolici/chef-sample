@@ -1,5 +1,9 @@
 driver:
   name: dokken
+  # required to test systemd services
+  # https://kitchen.ci/docs/drivers/dokken/#privileged
+  privileged: true
+
   chef_version: 18.1.0
 
 transport:
@@ -7,14 +11,20 @@ transport:
 
 provisioner:
   name: dokken #chef_zero
+  chef_license: accept-no-persist
 
 verifier:
   name: inspec
 
 platforms:
-  - name: ubuntu-20.04
+  - name: ubuntu
     driver:
       image: dokken/ubuntu-20.04
+      pid_one_command: /bin/systemd
+  - name: debian
+    driver:
+      image: dokken/debian-11
+      pid_one_command: /bin/systemd
 
 # todo: add more test platforms
 # dokken/ubuntu-18.04
@@ -27,6 +37,6 @@ platforms:
 suites:
   - name: default
     run_list:
-      - role[base]
+      - role[mongodb]
     attributes:
 
