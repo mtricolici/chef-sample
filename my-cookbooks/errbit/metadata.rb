@@ -1,0 +1,7 @@
+name 'errbit'
+maintainer 'someone'
+maintainer_email 'joric@somewhere.com'
+license 'Apache-2.0'
+description 'a simple cookbook to install errbit'
+version '1.0.0'
+depends 'apt'

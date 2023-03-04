@@ -5,3 +5,4 @@ cookbook 'git', '~> 11.2.2'
 
 cookbook 'devtools', path: 'my-cookbooks/devtools'
 cookbook 'mongodb', path: 'my-cookbooks/mongodb'
+cookbook 'errbit', path: 'my-cookbooks/errbit'
