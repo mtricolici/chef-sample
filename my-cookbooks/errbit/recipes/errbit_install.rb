@@ -40,3 +40,12 @@ bash 'bundle install' do
   action :run
 end
 
+template "#{errbit_dir}/.env" do
+  source 'env.erb'
+  owner errbit_user_id
+  group errbit_group
+  mode '0600'
+  variables(dbuser: mongodb_user, dbpass: mongodb_password)
+  action :create
+end
+

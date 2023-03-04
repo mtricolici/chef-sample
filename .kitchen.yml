@@ -39,6 +39,6 @@ suites:
   - name: default
     run_list:
       - role[mongodb]
-#      - role[errbit]
+      - role[errbit]
     attributes:
 
